@@ -1,0 +1,122 @@
+body {
+    overflow-x: hidden;
+}
+
+.bg-fill {
+    background-image: url('../img/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Poppins', sans-serif;
+}
+
+#dash-body {
+    height: 100vh;
+    background-color: #efefef;
+}
+
+.info { font-size: 1.25em;}
+
+a {
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+#login-box {
+    background-color: #ffffff99;
+}
+
+#admin-login-box {
+    min-width: 640px;
+    background-color: #ffffff99;
+}
+
+#admin-log-form {
+    width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#sign-btn {
+    text-align: center;
+}
+
+.btn-rad-0 {
+    border-radius: 0 !important;
+}
+
+#reg_btn {
+    width: 180px !important; 
+}
+
+#reg_form {
+    width: 100%;
+    max-width: 540px;
+    margin: 10px auto;
+}
+
+#side-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #ffffff;
+    padding: 10px;
+}
+
+.logo-name {
+    max-width: 220px !important;
+}
+.logo-short {
+    max-width: 3em !important;
+}
+
+.form-row {
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.sm-logo {
+    width: 3em;
+}
+@media screen and (max-width: 1024px)  {
+    .logbox-title {
+        margin-top: 1em;
+    }
+    .logo-name {
+        max-width: 120px;
+    }
+
+}
+@media screen and (max-width: 768px)  {
+    .logo-name {
+        display: none !important;
+    }
+    .logo-short {
+        display: block !important;
+    }
+    .top-header {
+        font-size: 1em;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    #user-guide {
+        margin-bottom: 0.5em !important;
+    }
+}
+

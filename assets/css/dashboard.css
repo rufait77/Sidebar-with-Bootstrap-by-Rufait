@@ -67,10 +67,8 @@ body {
     margin: auto 0;
 }
 
-.sidebar-logo a {
-    color: #FFF;
-    font-size: 1.15rem;
-    font-weight: 600;
+.sidebar-logo a img{
+    padding: 5px;
 }
 
 #sidebar:not(.expand) .sidebar-logo,
@@ -100,6 +98,7 @@ a.sidebar-link {
 a.sidebar-link:hover {
     background-color: rgba(255, 255, 255, .075);
     border-left: 3px solid #3b7ddd;
+    text-decoration: none !important;
 }
 
 .sidebar-item {
