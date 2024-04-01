@@ -39,11 +39,15 @@ body {
 #sidebar {
     width: 70px;
     min-width: 70px;
-    z-index: 1000;
+    z-index: 1;
     transition: all .25s ease-in-out;
-    background-color: #0e2238;
+    background-color: #4a9cf4;
     display: flex;
     flex-direction: column;
+}
+
+.collapse {
+    z-index: 0; /* Set a lower z-index value */
 }
 
 #sidebar.expand {
@@ -83,7 +87,7 @@ body {
 
 a.sidebar-link {
     padding: .625rem 1.625rem;
-    color: #FFF;
+    color: rgb(22, 6, 6);
     display: block;
     font-size: 0.9rem;
     white-space: nowrap;
@@ -96,8 +100,8 @@ a.sidebar-link {
 }
 
 a.sidebar-link:hover {
-    background-color: rgba(255, 255, 255, .075);
-    border-left: 3px solid #3b7ddd;
+    background-color: rgba(59, 30, 30, 0.075);
+    border-left: 3px solid #21395c;
     text-decoration: none !important;
 }
 
@@ -109,7 +113,7 @@ a.sidebar-link:hover {
     position: absolute;
     top: 0;
     left: 70px;
-    background-color: #0e2238;
+    background-color: #4a9cf4;
     padding: 0;
     min-width: 15rem;
     display: none;
