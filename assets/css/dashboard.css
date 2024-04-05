@@ -16,16 +16,19 @@ li {
 }
 
 h1 {
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
 }
 
 body {
+
     font-family: 'Poppins', sans-serif;
 }
 
 .wrapper {
     display: flex;
+    height: 100vh;
 }
 
 .main {
@@ -145,4 +148,65 @@ a.sidebar-link:hover {
 #sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
     transform: rotate(45deg);
     transition: all .2s ease-out;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Adjust label position */
+label {
+    display: inline-block;
+    width: 100px; /* Adjust as needed */
+}
+
+.container {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    border: 2px solid black; /* Add black border */
+    /*border-radius: 10px;*/ /* Add border radius for rounded corners */
+    padding: 20px; 
+    background-color: rgb(222, 220, 215);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+    
+
+.form-container {
+    margin-top: 50px;
+}
+
+.btn-container {
+    margin-top: 20px; /* Add margin to separate buttons from form */
+}
+
+/* Adjust button styles as needed */
+.btn-container .btn {
+    margin-right: 10px; /* Add margin between buttons */
+}
+
+.year-dropdown {
+    max-height: 150px; /* Adjust the height as needed */
+    overflow-y: auto;
+}
+
+.page-heading {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 100px; /* Adjust as needed to align with the sidebar */
+    margin: 10px; /* Add some margin for spacing */
+    align-items: top;
+    align-items: center;
+    
+}
+
+.page-heading i {
+    font-size: 1.5em; /* Adjust the size as needed */
+    margin-right: 10px; /* Adjust the margin as needed */
 }
