@@ -4,17 +4,14 @@ hamBurger.addEventListener("click", function () {
   document.querySelector("#sidebar").classList.toggle("expand");
 });
 
-$(document).ready(function () {
-  $('#dateFrom').datepicker({
-      format: 'yyyy-mm-dd',
-      autoclose: true
-  });
+
+$('.input-group-append').on('click', function(){
+  $(this).siblings('.datepicker').focus();
 });
 
-// Initialize Datepicker for Date Up to input field
-$(document).ready(function () {
-  $('#dateTo').datepicker({
-      format: 'yyyy-mm-dd',
-      autoclose: true
-  });
+$('.datepicker').datepicker({
+  autoclose: true,
+  todayHighlight: true,
+  clearBtn: true,
+  format: "dd/mm/yyyy"
 });
