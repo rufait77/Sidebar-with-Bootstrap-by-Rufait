@@ -99,13 +99,108 @@
                 </a>
             </div>
         </aside>
+        <!-- main elements begin -->
         <div class="main p-3">
-            <div class="text-center">
-                <h1>
-                    River Milage Contents
-                </h1>
+            
+            <h1 class="page-heading">
+                <i class="lni lni-direction"></i>
+                River Milage</h1>
+
+        
+            <div class="container">
+                
+                <h1 class="text-center">New River Milage Request</h1>
+                <div class="row justify-content-center">
+                   
+                    <div class="form-container col-md-12">                                      
+                        <form action="">
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="area" class="col-sm-2 col-form-label">Area:</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="area" name="area" placeholder="Enter Area">                                           
+                                            <!-- <div class="input-group-append">
+                                              <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                            </div> -->
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="lat_from" class="col-sm-2">Latitude From:</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="lat_from" name="lat_from" placeholder="Enter Latitude">                                           
+                                    </div>
+                                    <label for="long_from" class="col-sm-2 ">Longitude From:</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="long_from" name="long_from" placeholder="Enter Longitude">                                           
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="lat_to" class="col-sm-2 col-form-label">Latitude To:</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="lat_to" name="lat_to" placeholder="Enter Latitude">                                           
+                                    </div>
+                                    <label for="long_to" class="col-sm-2 col-form-label">Longitude To:</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="long_to" name="long_to" placeholder="Enter Longitude">                                           
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="milage_year" class="col-sm-2 col-form-label">Year:</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group">
+                                            <select class="form-control" id="milage_year" name="milage_year">
+                                                <option value="" disabled selected>Select Year</option>
+                                                <option value="2024">2024</option>
+                                                <option value="2023">2023</option>
+                                                <option value="2022">2022</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2020">2020</option>
+                                                <option value="2019">2019</option>
+                                                <option value="2018">2018</option>
+                                            </select>
+                                            <!-- <div class="input-group-append">
+                                              <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                            </div> -->
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="milage_quantity" class="col-sm-2 col-form-label">Quantity:</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" name="milage_quantity" id="milage_quantity" class="form-control" placeholder="Enter Quantity">
+                                    </div>
+                                </div>
+                            </div>
+
+
+        
+    
+                            <div class="btn-container row justify-content-center">
+                                <button class="btn btn-primary rounded-0 mb-1"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                                <button class="btn btn-success rounded-0 mb-1"><i class="fas fa-save"></i> Save and Add New</button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
+        <!-- main elements end -->
     </div>
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
