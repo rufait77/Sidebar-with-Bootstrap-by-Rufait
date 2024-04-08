@@ -15,3 +15,13 @@ $('.datepicker').datepicker({
   clearBtn: true,
   format: "dd/mm/yyyy"
 });
+
+var periodDropdown = document.getElementById("period");
+        var yearFields = document.getElementById("yearFields");
+        periodDropdown.addEventListener("change", function() {
+            if (periodDropdown.value === "yearly") {
+                yearFields.style.display = "block";
+            } else {
+                yearFields.style.display = "none";
+            }
+  });
