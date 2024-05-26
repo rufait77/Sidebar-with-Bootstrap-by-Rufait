@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +22,7 @@
 
 <body>
     <div class="wrapper">
-        <aside id="sidebar">
+    <aside id="sidebar">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
                     <i class="lni lni-menu"></i>
@@ -26,74 +33,74 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="index.html" class="sidebar-link">
+                    <a href="index.php" class="sidebar-link active">
                         <i class="lni lni-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="survey.html" class="sidebar-link">
+                    <a href="survey.php" class="sidebar-link">
                         <i class="lni lni-bar-chart"></i>
                         <span>Survey Chart</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="tidal_data.html" class="sidebar-link">
+                    <a href="tidal_data.php" class="sidebar-link">
                         <i class="lni lni-graph"></i>
                         <span>Tidal Data</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="tide_table.html" class="sidebar-link">
+                    <a href="tide_table.php" class="sidebar-link">
                         <i class="lni lni-agenda"></i>
                         <span>Tide Table</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="milage.html" class="sidebar-link">
+                    <a href="milage.php" class="sidebar-link">
                         <i class="lni lni-direction"></i>
                         <span>River Milage</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="map.html" class="sidebar-link">
+                    <a href="map.php" class="sidebar-link">
                         <i class="lni lni-map"></i>
                         <span>Map</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="cart.html" class="sidebar-link">
+                    <a href="cart.php" class="sidebar-link">
                         <i class="lni lni-shopping-basket"></i>
                         <span>My Cart</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="history.html" class="sidebar-link">
+                    <a href="history.php" class="sidebar-link">
                         <i class="lni lni-archive"></i>
                         <span>Order History</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="tariff.html" class="sidebar-link">
+                    <a href="tariff.php" class="sidebar-link">
                         <i class="lni lni-layout"></i>
                         <span>Data Tarrif</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="notification.html" class="sidebar-link">
+                    <a href="notification.php" class="sidebar-link">
                         <i class="lni lni-popup"></i>
                         <span>Notification</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="profile.html" class="sidebar-link active">
+                    <a href="profile.php" class="sidebar-link">
                         <i class="lni lni-user"></i>
                         <span>Profile</span>
                     </a>
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="#" class="sidebar-link">
+                <a href="login.php" class="sidebar-link">
                     <i class="lni lni-exit"></i>
                     <span>Logout</span>
                 </a>
@@ -102,7 +109,7 @@
         <div class="main p-3">
             <div class="text-center">
                 <h1>
-                    Profile Contents
+                <?php echo $_SESSION['user_id'];?>'S Profile Contents
                 </h1>
             </div>
         </div>

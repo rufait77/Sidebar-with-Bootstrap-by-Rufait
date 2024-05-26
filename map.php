@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +22,7 @@
 
 <body>
     <div class="wrapper">
-        <aside id="sidebar">
+    <aside id="sidebar">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
                     <i class="lni lni-menu"></i>
@@ -26,74 +33,74 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="index.html" class="sidebar-link">
+                    <a href="index.php" class="sidebar-link active">
                         <i class="lni lni-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="survey.html" class="sidebar-link">
+                    <a href="survey.php" class="sidebar-link">
                         <i class="lni lni-bar-chart"></i>
                         <span>Survey Chart</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="tidal_data.html" class="sidebar-link">
+                    <a href="tidal_data.php" class="sidebar-link">
                         <i class="lni lni-graph"></i>
                         <span>Tidal Data</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="tide_table.html" class="sidebar-link">
+                    <a href="tide_table.php" class="sidebar-link">
                         <i class="lni lni-agenda"></i>
                         <span>Tide Table</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="milage.html" class="sidebar-link active">
+                    <a href="milage.php" class="sidebar-link">
                         <i class="lni lni-direction"></i>
                         <span>River Milage</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="map.html" class="sidebar-link">
+                    <a href="map.php" class="sidebar-link">
                         <i class="lni lni-map"></i>
                         <span>Map</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="cart.html" class="sidebar-link">
+                    <a href="cart.php" class="sidebar-link">
                         <i class="lni lni-shopping-basket"></i>
                         <span>My Cart</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="history.html" class="sidebar-link">
+                    <a href="history.php" class="sidebar-link">
                         <i class="lni lni-archive"></i>
                         <span>Order History</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="tariff.html" class="sidebar-link">
+                    <a href="tariff.php" class="sidebar-link">
                         <i class="lni lni-layout"></i>
                         <span>Data Tarrif</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="notification.html" class="sidebar-link">
+                    <a href="notification.php" class="sidebar-link">
                         <i class="lni lni-popup"></i>
                         <span>Notification</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="profile.html" class="sidebar-link">
+                    <a href="profile.php" class="sidebar-link">
                         <i class="lni lni-user"></i>
                         <span>Profile</span>
                     </a>
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="#" class="sidebar-link">
+                <a href="login.php" class="sidebar-link">
                     <i class="lni lni-exit"></i>
                     <span>Logout</span>
                 </a>
@@ -103,72 +110,30 @@
         <div class="main p-3">
             
             <h1 class="page-heading">
-                <i class="lni lni-direction"></i>
-                River Milage</h1>
+                <i class="lni lni-map"></i>
+                Maps</h1>
 
         
             <div class="container">
                 
-                <h1 class="text-center">New River Milage Request</h1>
+                <h1 class="text-center">
+                <?php echo $_SESSION['user_id'];?>'S New Map Request</h1>
                 <div class="row justify-content-center">
                    
                     <div class="form-container col-md-12">                                      
                         <form action="">
                             <div class="form-group">
                                 <div class="row">
-                                    <label for="area" class="col-sm-2 col-form-label">Area:</label>
-                                    <div class="col-sm-10">
+                                    <label for="map_type" class="col-sm-5 col-form-label">Type of Map:</label>
+                                    <div class="col-sm-7">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" id="area" name="area" placeholder="Enter Area">                                           
-                                            <!-- <div class="input-group-append">
-                                              <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                                            </div> -->
-                                          </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <label for="lat_from" class="col-sm-2">Latitude From:</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="lat_from" name="lat_from" placeholder="Enter Latitude">                                           
-                                    </div>
-                                    <label for="long_from" class="col-sm-2 ">Longitude From:</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="long_from" name="long_from" placeholder="Enter Longitude">                                           
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <label for="lat_to" class="col-sm-2 col-form-label">Latitude To:</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="lat_to" name="lat_to" placeholder="Enter Latitude">                                           
-                                    </div>
-                                    <label for="long_to" class="col-sm-2 col-form-label">Longitude To:</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="long_to" name="long_to" placeholder="Enter Longitude">                                           
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <label for="milage_year" class="col-sm-2 col-form-label">Year:</label>
-                                    <div class="col-sm-10">
-                                        <div class="input-group">
-                                            <select class="form-control" id="milage_year" name="milage_year">
-                                                <option value="" disabled selected>Select Year</option>
-                                                <option value="2024">2024</option>
-                                                <option value="2023">2023</option>
-                                                <option value="2022">2022</option>
-                                                <option value="2021">2021</option>
-                                                <option value="2020">2020</option>
-                                                <option value="2019">2019</option>
-                                                <option value="2018">2018</option>
+                                            <select class="form-control" id="map_type" name="map_type">
+                                                <option value="" disabled selected>Select Type of Map</option>
+                                                <option value="">Circular Waterways</option>
+                                                <option value="">Classification of Roughness</option>
+                                                <option value="">Draft Restrictions Map</option>
+                                                <option value="">Classification of Inland Waterways</option>
+                                                <option value="">Bangladesh-India Protocol Routes</option>
                                             </select>
                                             <!-- <div class="input-group-append">
                                               <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
@@ -177,18 +142,15 @@
                                     </div>
                                 </div>
                             </div>
-
+    
                             <div class="form-group">
                                 <div class="row">
-                                    <label for="milage_quantity" class="col-sm-2 col-form-label">Quantity:</label>
-                                    <div class="col-sm-10">
-                                        <input type="number" name="milage_quantity" id="milage_quantity" class="form-control" placeholder="Enter Quantity">
+                                    <label for="quantity" class="col-sm-5 col-form-label">Quantity:</label>
+                                    <div class="col-sm-7">
+                                        <input type="number" name="quantity" id="quantity" class="form-control" placeholder="Enter Quantity">
                                     </div>
                                 </div>
                             </div>
-
-
-        
     
                             <div class="btn-container row justify-content-center">
                                 <button class="btn btn-primary rounded-0 mb-1"><i class="fas fa-cart-plus"></i> Add to Cart</button>

@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +22,7 @@
 
 <body>
     <div class="wrapper">
-        <aside id="sidebar">
+    <aside id="sidebar">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
                     <i class="lni lni-menu"></i>
@@ -26,74 +33,74 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="index.html" class="sidebar-link">
+                    <a href="index.php" class="sidebar-link active">
                         <i class="lni lni-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="survey.html" class="sidebar-link">
+                    <a href="survey.php" class="sidebar-link">
                         <i class="lni lni-bar-chart"></i>
                         <span>Survey Chart</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="tidal_data.html" class="sidebar-link">
+                    <a href="tidal_data.php" class="sidebar-link">
                         <i class="lni lni-graph"></i>
                         <span>Tidal Data</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="tide_table.html" class="sidebar-link">
+                    <a href="tide_table.php" class="sidebar-link">
                         <i class="lni lni-agenda"></i>
                         <span>Tide Table</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="milage.html" class="sidebar-link">
+                    <a href="milage.php" class="sidebar-link">
                         <i class="lni lni-direction"></i>
                         <span>River Milage</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="map.html" class="sidebar-link active">
+                    <a href="map.php" class="sidebar-link">
                         <i class="lni lni-map"></i>
                         <span>Map</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="cart.html" class="sidebar-link">
+                    <a href="cart.php" class="sidebar-link">
                         <i class="lni lni-shopping-basket"></i>
                         <span>My Cart</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="history.html" class="sidebar-link">
+                    <a href="history.php" class="sidebar-link">
                         <i class="lni lni-archive"></i>
                         <span>Order History</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="tariff.html" class="sidebar-link">
+                    <a href="tariff.php" class="sidebar-link">
                         <i class="lni lni-layout"></i>
                         <span>Data Tarrif</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="notification.html" class="sidebar-link">
+                    <a href="notification.php" class="sidebar-link">
                         <i class="lni lni-popup"></i>
                         <span>Notification</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="profile.html" class="sidebar-link">
+                    <a href="profile.php" class="sidebar-link">
                         <i class="lni lni-user"></i>
                         <span>Profile</span>
                     </a>
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="#" class="sidebar-link">
+                <a href="login.php" class="sidebar-link">
                     <i class="lni lni-exit"></i>
                     <span>Logout</span>
                 </a>
@@ -103,33 +110,35 @@
         <div class="main p-3">
             
             <h1 class="page-heading">
-                <i class="lni lni-map"></i>
-                Maps</h1>
+                <i class="lni lni-postcard"></i>
+                <?php echo $_SESSION['user_id'];?>'S Tide Table Book</h1>
 
         
             <div class="container">
                 
-                <h1 class="text-center">New Map Request</h1>
+                <h1 class="text-center">New Tide Table Book Request</h1>
                 <div class="row justify-content-center">
                    
                     <div class="form-container col-md-12">                                      
                         <form action="">
                             <div class="form-group">
                                 <div class="row">
-                                    <label for="map_type" class="col-sm-5 col-form-label">Type of Map:</label>
-                                    <div class="col-sm-7">
+                                    <label for="year" class="col-sm-3 col-form-label">Year:</label>
+                                    <div class="col-sm-9">
                                         <div class="input-group">
-                                            <select class="form-control" id="map_type" name="map_type">
-                                                <option value="" disabled selected>Select Type of Map</option>
-                                                <option value="">Circular Waterways</option>
-                                                <option value="">Classification of Roughness</option>
-                                                <option value="">Draft Restrictions Map</option>
-                                                <option value="">Classification of Inland Waterways</option>
-                                                <option value="">Bangladesh-India Protocol Routes</option>
+                                            <select class="form-control" id="year" name="year">
+                                                <option value="" disabled selected>Select Year</option>
+                                                <option value="2024">2024</option>
+                                                <option value="2023">2023</option>
+                                                <option value="2022">2022</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2020">2020</option>
+                                                <option value="2019">2019</option>
+                                                <option value="2018">2018</option>
                                             </select>
-                                            <!-- <div class="input-group-append">
+                                            <div class="input-group-append">
                                               <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                                            </div> -->
+                                            </div>
                                           </div>
                                     </div>
                                 </div>
@@ -137,8 +146,8 @@
     
                             <div class="form-group">
                                 <div class="row">
-                                    <label for="quantity" class="col-sm-5 col-form-label">Quantity:</label>
-                                    <div class="col-sm-7">
+                                    <label for="quantity" class="col-sm-3 col-form-label">Quantity:</label>
+                                    <div class="col-sm-9">
                                         <input type="number" name="quantity" id="quantity" class="form-control" placeholder="Enter Quantity">
                                     </div>
                                 </div>

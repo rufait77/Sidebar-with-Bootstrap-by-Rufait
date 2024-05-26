@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,13 +17,12 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/all.min.css">
     <link rel="stylesheet" href="assets/css/dashboard.css">
-    <link rel="stylesheet" href="assets/datepicker/css/bootstrap-datepicker.min.css">
     <link rel="icon" href="assets/img/biwta-logo.png" type="image/png">
 </head>
 
 <body>
     <div class="wrapper">
-        <aside id="sidebar">
+    <aside id="sidebar">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
                     <i class="lni lni-menu"></i>
@@ -27,90 +33,90 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="index.html" class="sidebar-link">
+                    <a href="index.php" class="sidebar-link active">
                         <i class="lni lni-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="survey.html" class="sidebar-link active">
+                    <a href="survey.php" class="sidebar-link">
                         <i class="lni lni-bar-chart"></i>
                         <span>Survey Chart</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="tidal_data.html" class="sidebar-link">
+                    <a href="tidal_data.php" class="sidebar-link">
                         <i class="lni lni-graph"></i>
                         <span>Tidal Data</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="tide_table.html" class="sidebar-link">
+                    <a href="tide_table.php" class="sidebar-link">
                         <i class="lni lni-agenda"></i>
                         <span>Tide Table</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="milage.html" class="sidebar-link">
+                    <a href="milage.php" class="sidebar-link">
                         <i class="lni lni-direction"></i>
                         <span>River Milage</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="map.html" class="sidebar-link">
+                    <a href="map.php" class="sidebar-link">
                         <i class="lni lni-map"></i>
                         <span>Map</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="cart.html" class="sidebar-link">
+                    <a href="cart.php" class="sidebar-link">
                         <i class="lni lni-shopping-basket"></i>
                         <span>My Cart</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="history.html" class="sidebar-link">
+                    <a href="history.php" class="sidebar-link">
                         <i class="lni lni-archive"></i>
                         <span>Order History</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="tariff.html" class="sidebar-link">
+                    <a href="tariff.php" class="sidebar-link">
                         <i class="lni lni-layout"></i>
                         <span>Data Tarrif</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="notification.html" class="sidebar-link">
+                    <a href="notification.php" class="sidebar-link">
                         <i class="lni lni-popup"></i>
                         <span>Notification</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="profile.html" class="sidebar-link">
+                    <a href="profile.php" class="sidebar-link">
                         <i class="lni lni-user"></i>
                         <span>Profile</span>
                     </a>
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="#" class="sidebar-link">
+                <a href="login.php" class="sidebar-link">
                     <i class="lni lni-exit"></i>
                     <span>Logout</span>
                 </a>
             </div>
         </aside>
-         <!-- main elements begin -->
-         <div class="main p-3">
+        <!-- main elements begin -->
+        <div class="main p-3">
             
             <h1 class="page-heading">
-                <i class="lni lni-bar-chart"></i>
-                Hydrographic Survey Chart</h1>
+                <i class="lni lni-direction"></i>
+                River Milage</h1>
 
         
             <div class="container">
                 
-                <h1 class="text-center" style="margin-bottom: -40px;">New Hydrographic Survey Chart Request</h1>
+                <h1 class="text-center"> <?php echo $_SESSION['user_id'];?>'S New River Milage Request</h1>
                 <div class="row justify-content-center">
                    
                     <div class="form-container col-md-12">                                      
@@ -129,19 +135,6 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <div class="row">
-                                    <label for="river_name" class="col-sm-2 col-form-label">River:</label>
-                                    <div class="col-sm-10">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="river_name" name="river_name" placeholder="Enter River name">                                           
-                                            <!-- <div class="input-group-append">
-                                              <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                                            </div> -->
-                                          </div>
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="form-group">
                                 <div class="row">
@@ -171,15 +164,18 @@
 
                             <div class="form-group">
                                 <div class="row">
-                                    <label for="scale" class="col-sm-2 col-form-label">Scale:</label>
+                                    <label for="milage_year" class="col-sm-2 col-form-label">Year:</label>
                                     <div class="col-sm-10">
                                         <div class="input-group">
-                                            <select class="form-control" id="scale" name="scale">
-                                                <option value="" disabled selected>Select Scale</option>
-                                                <option value="">1:10000</option>
-                                                <option value="">1:25000</option>
-                                                <option value="">1:50000</option>
-                                                <option value="">1:100000</option>
+                                            <select class="form-control" id="milage_year" name="milage_year">
+                                                <option value="" disabled selected>Select Year</option>
+                                                <option value="2024">2024</option>
+                                                <option value="2023">2023</option>
+                                                <option value="2022">2022</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2020">2020</option>
+                                                <option value="2019">2019</option>
+                                                <option value="2018">2018</option>
                                             </select>
                                             <!-- <div class="input-group-append">
                                               <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
@@ -191,53 +187,13 @@
 
                             <div class="form-group">
                                 <div class="row">
-                                    <label for="period" class="col-sm-2 col-form-label">period:</label>
+                                    <label for="milage_quantity" class="col-sm-2 col-form-label">Quantity:</label>
                                     <div class="col-sm-10">
-                                        <div class="input-group">
-                                            <select class="form-control" id="period" name="period">
-                                                <option value="" disabled selected>Select Period</option>
-                                                <option value="latest">Latest</option>
-                                                <option value="yearly">Yearly</option>
-                
-                                            </select>
-                                            <!-- <div class="input-group-append">
-                                              <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                                            </div> -->
-                                          </div>
+                                        <input type="number" name="milage_quantity" id="milage_quantity" class="form-control" placeholder="Enter Quantity">
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="form-group" id="yearFields" style="display: none;">
-                                <div class="row">
-                                    <label for="year_from" class="col-sm-2 col-form-label">Year From:</label>
-                                    <div class="col-sm-4">
-                                        <select class="form-control" id="year_from" name="year_from">
-                                            <option value="" disabled selected>Select Year</option>
-                                            <option value="2024">2024</option>
-                                            <option value="2023">2023</option>
-                                            <option value="2022">2022</option>
-                                            <option value="2021">2021</option>
-                                            <option value="2020">2020</option>
-                                            <option value="2019">2019</option>
-                                            <option value="2018">2018</option>
-                                        </select>
-                                    </div>
-                                    <label for="year_to" class="col-sm-2 col-form-label">Year To:</label>
-                                    <div class="col-sm-4">
-                                        <select class="form-control" id="year_to" name="year_to">
-                                            <option value="" disabled selected>Select Year</option>
-                                            <option value="2024">2024</option>
-                                            <option value="2023">2023</option>
-                                            <option value="2022">2022</option>
-                                            <option value="2021">2021</option>
-                                            <option value="2020">2020</option>
-                                            <option value="2019">2019</option>
-                                            <option value="2018">2018</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
 
         
     
@@ -254,10 +210,9 @@
         <!-- main elements end -->
     </div>
     <script src="assets/js/jquery.js"></script>
-    <script src="assets/datepicker/js/bootstrap-datepicker.min.js"> </script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/all.min.js"></script>
-    <script src="assets/js/dashboard.js"></script>   
+    <script src="assets/js/dashboard.js"></script>
 </body>
 
 </html>
