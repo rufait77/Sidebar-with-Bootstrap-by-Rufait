@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
                                     unset($_SESSION['reg_error']);
                                 }
                                 ?>
-                                <form action="register.php" method="post" enctype="multipart/form-data" id="reg_form" class="mt-2">
+                                <form action="payment_handler.php" method="post" enctype="multipart/form-data" id="reg_form" class="mt-2">
                                     <div class="form-row">
                                         <div class="col-3">Full Name</div>
                                         <div class="col-9"><input type="text" name="full_name" required class="form-control" placeholder="Enter Full Name"></div>

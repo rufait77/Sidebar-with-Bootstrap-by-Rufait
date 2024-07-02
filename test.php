@@ -19,18 +19,6 @@ if (!isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="assets/css/all.min.css">
     <link rel="stylesheet" href="assets/css/dashboard.css">
     <link rel="icon" href="assets/img/biwta-logo.png" type="image/png">
-    <style>
-        .main {
-            padding: 2rem;
-        }
-        .card-deck .card {
-            min-width: 250px;
-            margin-bottom: 1.5rem;
-        }
-        .container {
-            max-width: 100%;
-        }
-    </style>
 </head>
 
 <body>
@@ -113,7 +101,7 @@ if (!isset($_SESSION['user_id'])) {
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="logout.php" class="sidebar-link">
+                <a href="login.php" class="sidebar-link">
                     <i class="lni lni-exit"></i>
                     <span>Logout</span>
                 </a>
@@ -121,76 +109,98 @@ if (!isset($_SESSION['user_id'])) {
         </aside>
         <div class="main p-3">
             <div class="container text-center">
-                <h1 class="mb-4"><?php echo $_SESSION['user_id']; ?>'S Dashboard Contents</h1>
-                <div class="card-deck">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Survey Chart</h5>
-                            <p class="card-text">View and analyze survey charts.</p>
-                            <a href="survey.php" class="btn btn-primary">Go to Survey Chart</a>
+                <h1 class="mb-4">
+                    <?php echo $_SESSION['user_id']; ?>'S Dashboard Contents
+                </h1>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Survey Chart</h5>
+                                <p class="card-text">View and analyze survey charts.</p>
+                                <a href="survey.php" class="btn btn-primary">Go to Survey Chart</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Tidal Data</h5>
-                            <p class="card-text">Check tidal data information.</p>
-                            <a href="tidal_data.php" class="btn btn-primary">Go to Tidal Data</a>
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Tidal Data</h5>
+                                <p class="card-text">Check tidal data information.</p>
+                                <a href="tidal_data.php" class="btn btn-primary">Go to Tidal Data</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Tide Table</h5>
-                            <p class="card-text">View the tide tables.</p>
-                            <a href="tide_table.php" class="btn btn-primary">Go to Tide Table</a>
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Tide Table</h5>
+                                <p class="card-text">View the tide tables.</p>
+                                <a href="tide_table.php" class="btn btn-primary">Go to Tide Table</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">River Milage</h5>
-                            <p class="card-text">Check river mileage data.</p>
-                            <a href="milage.php" class="btn btn-primary">Go to River Milage</a>
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">River Milage</h5>
+                                <p class="card-text">Check river mileage data.</p>
+                                <a href="milage.php" class="btn btn-primary">Go to River Milage</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Map</h5>
-                            <p class="card-text">View the interactive map.</p>
-                            <a href="map.php" class="btn btn-primary">Go to Map</a>
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Map</h5>
+                                <p class="card-text">View the interactive map.</p>
+                                <a href="map.php" class="btn btn-primary">Go to Map</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">My Cart</h5>
-                            <p class="card-text">View items in your cart.</p>
-                            <a href="cart.php" class="btn btn-primary">Go to Cart</a>
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">My Cart</h5>
+                                <p class="card-text">View items in your cart.</p>
+                                <a href="cart.php" class="btn btn-primary">Go to Cart</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Order History</h5>
-                            <p class="card-text">Check your order history.</p>
-                            <a href="history.php" class="btn btn-primary">Go to Order History</a>
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Order History</h5>
+                                <p class="card-text">Check your order history.</p>
+                                <a href="history.php" class="btn btn-primary">Go to Order History</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Data Tariff</h5>
-                            <p class="card-text">View data tariff information.</p>
-                            <a href="tariff.php" class="btn btn-primary">Go to Data Tariff</a>
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Data Tariff</h5>
+                                <p class="card-text">View data tariff information.</p>
+                                <a href="tariff.php" class="btn btn-primary">Go to Data Tariff</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Notification</h5>
-                            <p class="card-text">View notifications.</p>
-                            <a href="notification.php" class="btn btn-primary">Go to Notification</a>
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Notification</h5>
+                                <p class="card-text">View notifications.</p>
+                                <a href="notification.php" class="btn btn-primary">Go to Notification</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Profile</h5>
-                            <p class="card-text">View and edit your profile.</p>
-                            <a href="profile.php" class="btn btn-primary">Go to Profile</a>
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Profile</h5>
+                                <p class="card-text">View and edit your profile.</p>
+                                <a href="profile.php" class="btn btn-primary">Go to Profile</a>
+                            </div>
                         </div>
                     </div>
                 </div>
